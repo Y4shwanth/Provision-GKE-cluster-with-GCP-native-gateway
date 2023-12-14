@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: qa-mongodb-container
-        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-mongodb/mongodb-amd:latest
+        image: image_name
         imagePullPolicy: Always
         ports:
         - containerPort: 27017
