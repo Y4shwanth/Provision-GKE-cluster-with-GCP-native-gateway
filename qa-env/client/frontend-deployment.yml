@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: qa-client-container
-        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-qa-client/emr-qa-client:latest
+        image: image
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
