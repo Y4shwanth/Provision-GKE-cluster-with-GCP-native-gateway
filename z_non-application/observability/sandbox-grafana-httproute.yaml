@@ -10,7 +10,7 @@ spec:
     namespace: non-application
     sectionName: https
   hostnames:
-  - "sandbox-grafana.cloudphysicianworld.org"
+  - "hostname"
   rules:
   - matches:
     - path:
