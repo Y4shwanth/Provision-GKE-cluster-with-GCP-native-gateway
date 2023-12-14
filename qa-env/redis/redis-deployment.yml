@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: qa-redis-container
-        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-redis/emr-redis:latest
+        image: image_name
         imagePullPolicy: Always
         ports:
         - containerPort: 6379
