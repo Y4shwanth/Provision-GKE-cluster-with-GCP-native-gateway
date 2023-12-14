@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-mongodb
+  namespace: qa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qa-mongodb
+  template:
+    metadata:
+      labels:
+        app: qa-mongodb
+    spec:
+      containers:
+      - name: qa-mongodb-container
+        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-mongodb/mongodb-amd:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: "/data/db"
+          name: qa-mongodb-volume
+      volumes:
+      - name: qa-mongodb-volume
+        persistentVolumeClaim:
+           claimName: qa-env-mongodb-pvc

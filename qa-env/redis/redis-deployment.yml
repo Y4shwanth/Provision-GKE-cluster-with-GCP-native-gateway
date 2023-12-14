@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-redis
+  namespace: qa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qa-redis
+  template:
+    metadata:
+      labels:
+        app: qa-redis
+    spec:
+      containers:
+      - name: qa-redis-container
+        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-redis/emr-redis:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6379
+        envFrom:
+        - secretRef:
+              name: qa-redis-secrets
+        volumeMounts:
+        - mountPath: "/data"
+          name: qa-redis-data-volume
+      volumes:
+      - name: qa-redis-data-volume
+        persistentVolumeClaim:
+           claimName: qa-env-redis-pvc

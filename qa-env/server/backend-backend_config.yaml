@@ -1,0 +1,11 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: emr-qa-server
+  namespace: qa
+spec:
+  healthCheck:
+    type: HTTP
+    requestPath: /healthcheck
+    port: 80
+  timeoutSec: 300

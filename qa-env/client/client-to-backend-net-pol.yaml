@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: frontend-to-backend
+  namespace: qa
+spec:
+  podSelector:
+    matchLabels:
+      app: qa-backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: qa-client

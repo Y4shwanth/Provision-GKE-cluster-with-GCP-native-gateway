@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qa-env-mongodb-pvc
+  namespace: qa
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+--- 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qa-env-redis-pvc
+  namespace: qa
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

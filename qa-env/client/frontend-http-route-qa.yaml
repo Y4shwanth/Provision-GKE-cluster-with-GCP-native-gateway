@@ -1,0 +1,23 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: frontend-route-qa
+  namespace: qa
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: gke-external-gateway
+    namespace: non-application
+    sectionName: https
+  hostnames:
+  - "qa.cloudphysicianworld.org"
+  rules:
+  - matches:
+    - path:
+        value: /
+    backendRefs:
+    - group: ""
+      name: frontend-service
+      kind: Service
+      port: 80
+      namespace: qa

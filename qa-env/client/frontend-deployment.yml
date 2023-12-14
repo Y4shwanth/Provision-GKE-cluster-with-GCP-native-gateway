@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-client
+  namespace: qa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qa-client
+  template:
+    metadata:
+      labels:
+        app: qa-client
+    spec:
+      containers:
+      - name: qa-client-container
+        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-qa-client/emr-qa-client:latest
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+        ports:
+        - containerPort: 80

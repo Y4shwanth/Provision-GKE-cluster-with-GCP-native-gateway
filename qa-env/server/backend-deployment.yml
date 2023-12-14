@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-backend
+  namespace: qa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qa-backend
+  template:
+    metadata:
+      labels:
+        app: qa-backend
+    spec:
+      containers:
+      - name: qa-backend-container
+        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-qa-server/emr-qa-server:latest 
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 80
+          initialDelaySeconds: 5
+        ports:
+        - containerPort: 80
+        envFrom:
+          - configMapRef:
+              name: qa-backend-configmap
+          - secretRef:
+              name: qa-backend-secrets

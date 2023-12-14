@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-to-redis
+  namespace: qa
+spec:
+  podSelector:
+    matchLabels:
+      app: qa-redis
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: qa-backend
