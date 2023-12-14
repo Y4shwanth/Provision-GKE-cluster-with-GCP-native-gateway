@@ -25,4 +25,4 @@ spec:
     tls:
       mode: Terminate
       options:
-        networking.gke.io/pre-shared-certs: mcrt-07279b99-4806-41e7-a598-0000222e7b02,mcrt-2e6665ed-6bea-49bf-ab78-fad527d79081,mcrt-adcd4640-e38f-48b1-99aa-71a2a230ce1c,mcrt-bae61377-5e2b-4e88-b88e-acae4f62d315,mcrt-e71f70e4-7057-4136-bb46-43ebb4ebd6c2,mcrt-f29d4b69-6e08-4379-9ada-3cc37111acd7,mcrt-0266fb29-9b0b-47f9-ad88-28d4ff1f00c3,mcrt-3f4d529a-ea57-4827-9264-fdbd853c5a8c,mcrt-270e566d-1fc0-4d4d-b33c-f545b97cc029,mcrt-967152fc-49c2-4e1c-a0d5-6a832526d455
+        networking.gke.io/pre-shared-certs: 'mcrt-ids'
