@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: qa-backend-container
-        image: asia-south1-docker.pkg.dev/sandbox-tech-project-bv05/emr-qa-server/emr-qa-server:latest 
+        image: image_name
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
